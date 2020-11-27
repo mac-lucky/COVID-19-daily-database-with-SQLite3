@@ -1,22 +1,11 @@
 import sqlite3
 import requests
+import pandas as pd
+import os
 
 
-
-def createTable():
-    conn=sqlite3.connect("ranking.db")
-    cur=conn.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS Ranking (Code INTEGER, Model TEXT, Price INTEGER, Points INTEGER, Year INTEGER)")
-    conn.commit()
-    conn.close()
-
-def insert(Code, Model, Price, Points, Year):
-    conn=sqlite3.connect("ranking.db")
-    cur=conn.cursor()
-    cur.execute("INSERT INTO Ranking VALUES(?,?,?,?,?)", (Code, Model, Price, Points, Year))
-    conn.commit()
-    conn.close()
-
+conn=sqlite3.connect("ranking.db")
+pd.set_option('display.max_rows', None)
     
 def createTableCorona():
     conn=sqlite3.connect("ranking.db")
@@ -36,7 +25,7 @@ def insertCorona(country, todayCases, todayDeaths):
 def view():
     conn=sqlite3.connect("ranking.db")
     cur=conn.cursor()
-    cur.execute("SELECT * FROM Corona")
+    cur.execute("SELECT * FROM Corona ORDER BY country")
     dataCases = cur.fetchall()
     conn.close()
     return dataCases
@@ -57,16 +46,35 @@ def getData():
         death = db[dr]['todayDeaths']
         insertCorona(country, cases, death)
     
-
-
-createTableCorona()
-delete()
-getData()
-print(view())
-
-
-
-
+ans=True
+while ans:
+    print ("""
+    1.Update
+    2.View
+    3.Exit/Quit
+    """)
+    ans=input("What would you like to do? ") 
+    if ans=="1":
+      if os.path.isfile('.\ranking.db'):
+        print("Deleting old records")
+        delete()
+        print("Request for newer data")
+        getData()
+        print("Data updated")
+      else:  
+        createTableCorona()
+        print("Request for data")
+        getData()
+        print("Data downloaded")
+      
+    elif ans=="2":
+      print(pd.read_sql_query("SELECT * FROM Corona", conn))
+      input("Press any button to go back") 
+    elif ans=="3":
+      print("\n Goodbye")
+      break 
+    elif ans !="":
+      print("\n Not Valid Choice Try again") 
 
 
 
