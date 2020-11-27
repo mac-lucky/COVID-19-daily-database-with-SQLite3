@@ -22,6 +22,9 @@ def insertCorona(country, todayCases, todayDeaths):
     conn.commit()
     conn.close()
 
+def cls():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 def view():
     conn=sqlite3.connect("ranking.db")
     cur=conn.cursor()
@@ -55,6 +58,7 @@ while ans:
     """)
     ans=input("What would you like to do? ") 
     if ans=="1":
+      cls()
       if os.path.isfile('.\ranking.db'):
         print("Deleting old records")
         delete()
@@ -68,6 +72,7 @@ while ans:
         print("Data downloaded")
       
     elif ans=="2":
+      cls()
       print(pd.read_sql_query("SELECT * FROM Corona", conn))
       input("Press any button to go back") 
     elif ans=="3":
