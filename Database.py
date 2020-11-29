@@ -56,7 +56,7 @@ while ans:
     2.View
     3.Exit/Quit
     """)
-    ans=input("What would you like to do? ") 
+    ans=input("Choose number, what would you like to do ") 
     if ans=="1":
       cls()
       if os.path.isfile('.\ranking.db'):
@@ -73,7 +73,7 @@ while ans:
       
     elif ans=="2":
       cls()
-      print(pd.read_sql_query("SELECT * FROM Corona", conn))
+      print(pd.read_sql_query("SELECT * FROM Corona ORDER BY country", conn))
       input("Press any button to go back") 
     elif ans=="3":
       print("\n Goodbye")
