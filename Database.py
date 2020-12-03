@@ -124,14 +124,14 @@ def checkDate():
 
 c.execute(''' SELECT count(name) FROM sqlite_master WHERE type='table' AND name='Corona' ''')
 if c.fetchone()[0]==0 :
-  #cls()
+  cls()
   print("""
        1. Update data of current cases and create database
        2. Exit
        """)
   option = input("Choose number, what would you like to do ")
   if option == "1":
-    #cls()
+    cls()
     createTableCorona()
     createTableSaveVar()
     print("Request for data")
@@ -149,21 +149,21 @@ if c.fetchone()[0]==0 :
 
 ans=True
 while ans:
-    #cls()
+    cls()
     checkDate()
     if compareDateOld < compareDateNew:
       print("Last update: ", compareDateOld)
       print("Todays date: ", compareDateNew)
       ask = input("1. Would you like to update database to this day Y/N ")
       if ask == 'Y' or 'y':
-        #cls()
+        cls()
         print("Data update started")
         getData()
         upToDate = 1
         dateUpdate = dateNowStr
         updateVar(dateUpdate, upToDate)
       else:
-        #cls()
+        cls()
         print("Update canceled")
     print ("""
     1.Update
@@ -172,7 +172,7 @@ while ans:
     """)
     ans=input("Choose number, what would you like to do ") 
     if ans=="1":
-      ##cls()
+      cls()
       if os.path.isfile('./ranking.db'):
         print("Request for newer data")
         getDataUpdate()
@@ -189,7 +189,7 @@ while ans:
         upToDate = 1
         updateVar(dateUpdate, upToDate)
     elif ans=="2":
-      #cls()
+      cls()
       print(pd.read_sql_query("SELECT * FROM Corona ORDER BY date, country", conn))
       print(" ")
       print("Date:", dateNowStr)
