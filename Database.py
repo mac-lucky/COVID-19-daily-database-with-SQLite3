@@ -77,7 +77,7 @@ def insertCorona(dateNowStr, country, cases, deaths):
   conn.close()
 
 def cls():
-    os.system('#cls' if os.name == 'nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def view():
   conn=sqlite3.connect("./ranking.db")
