@@ -9,20 +9,20 @@ Python3, pip
 PIP modules:
 * Linux:
 
-'''bash
+```bash
 pip install -r /path/to/requirements.txt
-'''
+```
 
 * Windows:
-'''bash
+```bash
 python -m pip install -r /path/to/requirements.txt
-'''
+```
 
 ## Usage 
 
 Start the program as every python script using
 
-'''bash
+```bash
 python databasy.py
-'''
+```
 
