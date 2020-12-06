@@ -20,7 +20,7 @@ python -m pip install -r /path/to/requirements.txt
 
 ## Usage 
 
-Start the program as every python script using
+Start the program as every python script
 
 ```bash
 python databasy.py
