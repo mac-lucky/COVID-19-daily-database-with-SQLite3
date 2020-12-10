@@ -144,7 +144,7 @@ while 1:
       upToDate = 1
       dateUpdate = dateNowStr
       updateVar(dateUpdate, upToDate)
-      time.sleep(60)
+      time.sleep(3600)
     else:
       print("Request for newer data")
       getDataUpdate()
@@ -152,4 +152,4 @@ while 1:
       dateUpdate = dateNowStr
       upToDate = 1
       updateVar(dateUpdate, upToDate)
-      time.sleep(60)
+      time.sleep(3600)
