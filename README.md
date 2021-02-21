@@ -1,6 +1,9 @@
 # COVID-19-daily-database-with-SQLite3
 
 Python program to view daily data of COVID-19 cases stored in SQLite3 database. There are two versions of this program one running in loop looking for updates every hour and the second one with Terminal menu to manually create database and update whenever you want.
+
+![alt text](https://github.com/Mac-lucky/COVID-19-daily-database-with-SQLite3/blob/main/screen.png?raw=true)
+
  
 ## Requirements 
 
