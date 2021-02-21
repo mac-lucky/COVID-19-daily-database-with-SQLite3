@@ -23,6 +23,12 @@ python -m pip install -r /path/to/requirements.txt
 Start the program as every python script
 
 ```bash
-python databasy.py
+python database-manual.py
 ```
 
+or
+
+
+```bash
+python database-autonomous.py
+```
